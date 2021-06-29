@@ -1,13 +1,25 @@
 #include "../include/kenobet.hpp"
 
 bool KenoBet::add_number( number_type spot_ ){
-  try{
-    this->m_spots.push_back(spot_);
-    return true;
+  bool contains = false;
+  int cont = 0;
+  for (int i = 0; i < m_spots.size(); i++){
+    if(m_spots[i] == spot_) contains = true;
+    cont++;
   }
-  catch(const std::exception& e){
+
+  if(contains){
+    cout << "Números repetidos!!" << endl;
     return false;
   }
+
+  if(m_spots.size() == 15){
+    cout << "Máximo de 15 apostas" << endl;
+    return false;
+  }
+
+  this->m_spots.push_back(spot_);
+  return true;
 }
 
 set_of_numbers_type KenoBet::get_spots( void ) const{
@@ -28,7 +40,8 @@ cash_type KenoBet::get_wage( void ) const{
   return m_wage;
 }
 
-void KenoBet::setValues(const std::string& s) {
+
+bool KenoBet::setValues(const std::string& s) {
   string text = s;
 
   stringstream text_stream(text);
@@ -36,11 +49,15 @@ void KenoBet::setValues(const std::string& s) {
 
   try{
     while (std::getline(text_stream, item, ' ')) {
-      this->add_number(stoi(item));
+      bool isAdd = this->add_number(stoi(item));
+      if(!isAdd) return false;
     }
   } catch(const std::exception& e) {
-    cout << "Erro" << endl;
+    cout << "Aposte apenas números!!" << endl;
+    return false;
   }
+
+  return true;
 }
 
 string KenoBet::printSpots(void) {

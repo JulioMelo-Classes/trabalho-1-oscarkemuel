@@ -52,7 +52,7 @@ class KenoBet {
 
     string printSpots( void );
     string printWage( void );
-    void setValues(const std::string& s);
+    bool setValues(const std::string& s);
 
   private:
     set_of_numbers_type m_spots;  //<! The player's bet.
