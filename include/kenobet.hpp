@@ -50,13 +50,20 @@ class KenoBet {
         @return The vector< spot_type > with the player's spots picked so far. */
     set_of_numbers_type get_spots( void ) const;
 
+    number_type length( void ) const;
+
+    bool setRounds( number_type rounds );
+    number_type getRounds( void ) const;
+
+    float getCreditPerRound( void ) const;
+
     string printSpots( void );
-    string printWage( void );
     bool setValues(const std::string& s);
 
   private:
     set_of_numbers_type m_spots;  //<! The player's bet.
-    cash_type m_wage;             //<! The player's wage
+    cash_type m_wage;             //<! The player's wage.
+    number_type rounds;           //<! The player's rounds.
 };
 
 #endif

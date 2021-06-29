@@ -28,6 +28,11 @@ set_of_numbers_type KenoBet::get_spots( void ) const{
 
 bool KenoBet::set_wage( cash_type wage_ ){
   try{
+    if(wage_ <= 0){
+      cout << "Apostas apenas acima de 0" << endl;
+      return false;
+    }
+
     this->m_wage = wage_;
     return true;
   }
@@ -40,6 +45,27 @@ cash_type KenoBet::get_wage( void ) const{
   return m_wage;
 }
 
+bool KenoBet::setRounds( number_type rounds ){
+  this->rounds = rounds;
+
+  return true;
+}
+
+number_type KenoBet::getRounds( void ) const{
+  return rounds;
+}
+
+size_t KenoBet::size( void ) const{
+  return sizeof this->get_spots();
+}
+
+number_type KenoBet::length( void ) const{
+  return m_spots.size();
+}
+
+float KenoBet::getCreditPerRound( void ) const{
+  return m_wage / rounds;
+}
 
 bool KenoBet::setValues(const std::string& s) {
   string text = s;
@@ -69,13 +95,10 @@ string KenoBet::printSpots(void) {
   }
   spots += "]";
 
+  // for (size_t i = 0; i < count; i++){
+  //   /* code */
+  // }
+
+
   return spots;
-}
-
-string KenoBet::printWage( void ){
-  string wage;
-
-  wage += to_string(get_wage());
-
-  return wage;
 }
