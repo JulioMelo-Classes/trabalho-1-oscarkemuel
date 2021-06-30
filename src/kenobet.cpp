@@ -1,9 +1,5 @@
 #include "../include/kenobet.hpp"
 
-KenoBet::KenoBet( ){
-  set_wage(0);
-}
-
 bool KenoBet::add_number( number_type spot_ ){
 
   // validations --------------
