@@ -1,22 +1,23 @@
 #include "../include/kenobet.hpp"
 
 bool KenoBet::add_number( number_type spot_ ){
-  bool contains = false;
-  int cont = 0;
-  for (int i = 0; i < m_spots.size(); i++){
-    if(m_spots[i] == spot_) contains = true;
-    cont++;
-  }
 
-  if(contains){
-    cout << "Números repetidos!!" << endl;
-    return false;
+  // validations
+  for (int i = 0; i < m_spots.size(); i++){
+    if(m_spots[i] == spot_) {
+      cout << "Número (" << m_spots[i] << ") repetido!!" << endl;
+      return false;
+    }
   }
 
   if(m_spots.size() == 15){
     cout << "Máximo de 15 apostas" << endl;
     return false;
+  } else if(spot_ < 1 || spot_ > 80){
+    cout << "Apenas números ente 1 e 80" << endl;
+    return false;
   }
+  // validations
 
   this->m_spots.push_back(spot_);
   return true;
