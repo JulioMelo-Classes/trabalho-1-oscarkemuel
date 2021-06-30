@@ -10,7 +10,6 @@ int main(int argc, char *argv[]){
 
   file.open(argv[1]);
 
-
   KenoBet bet;
   bool status = true;
 

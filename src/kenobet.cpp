@@ -1,9 +1,13 @@
 #include "../include/kenobet.hpp"
 
+KenoBet::KenoBet( ){
+  set_wage(0);
+}
+
 bool KenoBet::add_number( number_type spot_ ){
 
-  // validations
-  for (int i = 0; i < m_spots.size(); i++){
+  // validations --------------
+  for (int i = 0; i < this->size(); i++){
     if(m_spots[i] == spot_) {
       cout << "Número (" << m_spots[i] << ") repetido!!" << endl;
       return false;
@@ -17,7 +21,7 @@ bool KenoBet::add_number( number_type spot_ ){
     cout << "Apenas números ente 1 e 80" << endl;
     return false;
   }
-  // validations
+  // --------------------------
 
   this->m_spots.push_back(spot_);
   return true;
