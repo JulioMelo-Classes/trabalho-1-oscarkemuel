@@ -45,6 +45,10 @@ cash_type KenoBet::get_wage( void ) const{
   return m_wage;
 }
 
+void KenoBet::reset( void ){
+  this->m_spots.clear();
+}
+
 bool KenoBet::setRounds( number_type rounds ){
   this->rounds = rounds;
 
@@ -56,10 +60,6 @@ number_type KenoBet::getRounds( void ) const{
 }
 
 size_t KenoBet::size( void ) const{
-  return sizeof this->get_spots();
-}
-
-number_type KenoBet::length( void ) const{
   return m_spots.size();
 }
 

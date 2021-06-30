@@ -41,7 +41,7 @@ int main(int argc, char *argv[]){
     << ">>> Aposta lida com sucesso!" << endl
     << "    " << "Você apostará um total de $" << bet.get_wage() << " créditos" << endl
     << "    " << "Jogará um total de " << bet.getRounds() << " rodadas," " apostando $"<< bet.getCreditPerRound() << " cŕeditos por rodada" << endl << endl
-    << "    Sua aposta tem " << bet.length() << " números, eles são: " << bet.printSpots() << endl
+    << "    Sua aposta tem " << bet.size() << " números, eles são: " << bet.printSpots() << endl
     << endl;
   }else {
     cout << "Problema ao ler arquivo" << endl;
