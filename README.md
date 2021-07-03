@@ -8,10 +8,9 @@ Para compilar o trabalho, rode os seguintes comandos:
 mkdir build && cd build
 cmake ../
 make
-./kenobet ../data/bets.txt
 ```
 ### Execução
-Para executar rode o seguinte comando:
+Para executar com suas apostas, rode o seguinte comando:
 ```
 ./kenobet ../data/bets.txt
 ```
