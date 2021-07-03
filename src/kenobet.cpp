@@ -87,19 +87,34 @@ bool KenoBet::setValues(const std::string& s) {
   return true;
 }
 
-string KenoBet::printSpots(void) {
-  string spots;
-  spots += "[ ";
-  for (auto &n : m_spots) {
-    spots += to_string(n);
-    spots += " ";
+set_of_numbers_type KenoBet::get_hits( const set_of_numbers_type & hits_ ) const{
+  set_of_numbers_type hits;
+  // cout << hits_.size() << endl;
+
+  for (int i = 0; i < size(); i++){
+    for (int j = 0; j < 20; j++){
+      if(m_spots[i] == hits_[j]) hits.push_back(hits_[j]);
+    }
   }
-  spots += "]";
 
-  // for (size_t i = 0; i < count; i++){
-  //   /* code */
-  // }
+  return hits;
+}
 
+std::vector<std::vector<float> > KenoBet::get_table(void){
+  return payoff_table;
+}
 
-  return spots;
+void KenoBet::startGame( void ) {
+  cout << "        " << "----------+-----------" << endl;
+  cout << "        " << "Hits      | Retorno" << endl;
+  for (int i = 0; i < (size() + 1) ; i++){
+    cout << "        " << i << "         | " << payoff_table[size()-1][i] << endl;
+  }
+  cout << "        " << "------------------------------------------------------------" << endl;
+
+  for (int i = 0; i < rounds; i++){
+    cout << "        ";
+    cout << "Esta é a rodada #" << i+1 << " de " << rounds << ", sua aposta é $" << get_wage()/getRounds() << ". Boa sorte!" << endl;
+  }
+
 }
