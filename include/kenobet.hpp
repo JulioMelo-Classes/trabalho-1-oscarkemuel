@@ -72,9 +72,6 @@ class KenoBet {
 
     std::vector<std::vector<float> > get_table(void);
 
-    //! Start the game.
-    void startGame( void );
-
   private:
     set_of_numbers_type m_spots;  //<! The player's bet.
     cash_type m_wage;             //<! The player's wage.

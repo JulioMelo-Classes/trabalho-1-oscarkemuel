@@ -70,6 +70,7 @@ float KenoBet::getCreditPerRound( void ) const{
 
 bool KenoBet::setValues(const std::string& s) {
   string text = s;
+  cout << "TESTE" << text << endl;
 
   stringstream text_stream(text);
   string item;
@@ -102,19 +103,4 @@ set_of_numbers_type KenoBet::get_hits( const set_of_numbers_type & hits_ ) const
 
 std::vector<std::vector<float> > KenoBet::get_table(void){
   return payoff_table;
-}
-
-void KenoBet::startGame( void ) {
-  cout << "        " << "----------+-----------" << endl;
-  cout << "        " << "Hits      | Retorno" << endl;
-  for (int i = 0; i < (size() + 1) ; i++){
-    cout << "        " << i << "         | " << payoff_table[size()-1][i] << endl;
-  }
-  cout << "        " << "------------------------------------------------------------" << endl;
-
-  for (int i = 0; i < rounds; i++){
-    cout << "        ";
-    cout << "Esta é a rodada #" << i+1 << " de " << rounds << ", sua aposta é $" << get_wage()/getRounds() << ". Boa sorte!" << endl;
-  }
-
 }

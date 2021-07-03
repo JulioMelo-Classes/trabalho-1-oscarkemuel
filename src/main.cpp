@@ -3,6 +3,15 @@
 #include <vector>
 #include "../include/kenobet.hpp"
 
+void printArray(set_of_numbers_type array) {
+  cout << "[ ";
+  for (auto &n : array) {
+    cout << to_string(n);
+    cout << " ";
+  }
+  cout << "]";
+}
+
 int main(int argc, char *argv[]){
   ifstream file;
   string row;
@@ -45,20 +54,21 @@ int main(int argc, char *argv[]){
     std::vector<std::vector<float> > table = bet.get_table();
     cash_type total = wage;
 
+    if(size == 0){
+      cout << "Formato errado" << endl;
+      return 0;
+    }
+
     cout
     << ">>> Aposta lida com sucesso!" << endl
     << "    " << "Você apostará um total de $" << wage << " créditos" << endl
     << "    " << "Jogará um total de " << rounds << " rodadas," " apostando $"<< creditPerRound << " cŕeditos por rodada" << endl << endl
     << "    " << "Sua aposta tem " << size << " números, eles são: ";
-    cout << "[ ";
-    for (auto &n : spots) {
-      cout << to_string(n);
-      cout << " ";
-    }
-    cout << "]" << endl;
+    printArray(spots);
+    cout << endl;
 
-    cout << "        " << "----------+-----------" << endl;
-    cout << "        " << "Hits      | Retorno" << endl;
+    cout << "        " << "----------+-----------" << endl
+    << "        " << "Hits      | Retorno" << endl;
     for (int i = 0; i < (size + 1) ; i++){
       cout << "        " << i << "         | " << table[size-1][i] << endl;
     }
@@ -67,11 +77,11 @@ int main(int argc, char *argv[]){
     srand(time(NULL));
     for (int i = 0; i < rounds; i++){
       set_of_numbers_type numbers = {};
-      cout << "        " << "------------------------------------------------------------" << endl;
-      cout << "        ";
-      cout << "Esta é a rodada #" << i+1 << " de " << rounds << ", sua aposta é $" << creditPerRound << ". Boa sorte!" << endl;
+      cout << "        " << "------------------------------------------------------------" << endl
+      << "        "
+      << "Esta é a rodada #" << i+1 << " de " << rounds << ", sua aposta é $" << creditPerRound << ". Boa sorte!" << endl
 
-      cout << "        Os números sorteados são: [ ";
+      << "        Os números sorteados são: ";
       while (numbers.size() < 20){
         int number = (rand() %(80)+1);
         bool isFree = true;
@@ -85,35 +95,30 @@ int main(int argc, char *argv[]){
         }
         if(isFree) {
           numbers.push_back(number);
-          cout << number << " ";
         };
       }
-      cout << "]" << endl << endl;
+      printArray(numbers);
+      cout  << endl << endl;
       set_of_numbers_type hits = bet.get_hits(numbers);
       float retorno = table[size-1][hits.size()];
       float faturamento = retorno * creditPerRound;
       total -= creditPerRound;
       total += faturamento;
 
-      cout << "        ";
-      cout << "Você acertou os números ";
-      cout << "[ ";
-      for (auto &n : hits) {
-        cout << to_string(n);
-        cout << " ";
-      }
-      cout << "], um total de " << hits.size() << " hits de " << size << endl;
-
-      cout << "        ";
-      cout << "Sua taxa de retorno é " << retorno << " , assim você sai com: $" << faturamento << endl;
-      cout << "        ";
-      cout << "Você possui um total de: $" << total << " créditos." << endl;
+      cout << "        "
+      << "Você acertou os números ";
+      printArray(hits);
+      cout << ", um total de " << hits.size() << " hits de " << size << endl
+      << "        "
+      << "Sua taxa de retorno é " << retorno << " , assim você sai com: $" << faturamento << endl
+      << "        "
+      << "Você possui um total de: $" << total << " créditos." << endl;
     }
 
-    cout << ">>> Fim das rodadas!" << endl;
-    cout << "--------------------------------------------------------------------" << endl << endl;
-    cout << "======= Sumário =======" << endl;
-    cout << ">>> Você gastou um total de $" << wage << " créditos" << endl;
+    cout << ">>> Fim das rodadas!" << endl
+    << "--------------------------------------------------------------------" << endl << endl
+    << "======= Sumário =======" << endl
+    << ">>> Você gastou um total de $" << wage << " créditos" << endl;
 
     if((total-wage) > 0){
       cout << ">>> Hooray! você ganhou $" << (total-wage) << " créditos!" << endl;
