@@ -76,7 +76,7 @@ class KenoBet {
     cash_type m_wage;             //<! The player's wage.
     number_type rounds;           //<! The player's rounds.
 
-    std::vector<std::vector<float> > payoff_table = { //<! Payoff table
+    std::vector<std::vector<float>> payoff_table = { //<! Payoff table
     { 0, 3 },
     { 0, 1, 9 },
     { 0, 1, 2, 16 },

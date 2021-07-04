@@ -101,6 +101,6 @@ set_of_numbers_type KenoBet::get_hits( const set_of_numbers_type & hits_ ) const
   return hits;
 }
 
-std::vector<std::vector<float> > KenoBet::get_table(void){
+std::vector<std::vector<float>> KenoBet::get_table(void){
   return payoff_table;
 }
