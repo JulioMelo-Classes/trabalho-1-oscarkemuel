@@ -17,9 +17,11 @@ void printArray(set_of_numbers_type array) {
 int main(int argc, char *argv[]){
   ifstream file;
   string row;
+  string path = "../data/";
+  path += argv[1];
   int line = 0;
 
-  file.open(argv[1]);
+  file.open(path);
 
   KenoBet bet;
   bool status = true;
