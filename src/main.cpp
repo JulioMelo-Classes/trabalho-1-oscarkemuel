@@ -3,6 +3,8 @@
 #include <vector>
 #include "../include/kenobet.hpp"
 
+/*! Write an array in [ 1 2 3 ] format
+  @param array Array of type set_of_numbers_type .*/
 void printArray(set_of_numbers_type array) {
   cout << "[ ";
   for (auto &n : array) {

@@ -45,6 +45,8 @@
     "streambuf": "cpp",
     "typeinfo": "cpp",
     "iomanip": "cpp",
-    "ctime": "cpp"
+    "ctime": "cpp",
+    "chrono": "cpp",
+    "ratio": "cpp"
   }
 }
