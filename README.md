@@ -1,14 +1,15 @@
 # Trabalho-1
 Repositório contendo as especificações do Trabalho 1 da disciplina de LP1
 
-## Compilar e Executar
-### Compilação
-Para compilar o trabalho, rode os seguintes comandos:
+## Clonar, Compilar e Executar
+
+### Clonar
+Para clonar o trabalho, rode os seguintes comandos:
 ```
-mkdir build && cd build
-cmake ../
-make
+git clone https://github.com/JulioMelo-Classes/trabalho-1-oscarkemuel.git
+cd trabalho-1-oscarkemuel
 ```
+
 ### Execução
 Para executar com suas apostas, rode o seguinte comando:
 ```
