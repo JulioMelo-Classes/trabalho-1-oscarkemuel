@@ -10,6 +10,14 @@ git clone https://github.com/JulioMelo-Classes/trabalho-1-oscarkemuel.git
 cd trabalho-1-oscarkemuel
 ```
 
+### Compilação
+Para compilar o trabalho, rode os seguintes comandos:
+```
+mkdir build && cd build
+cmake ../
+make
+```
+
 ### Execução
 Para executar com suas apostas, rode o seguinte comando:
 ```
