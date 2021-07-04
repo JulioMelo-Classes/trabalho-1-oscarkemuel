@@ -12,19 +12,23 @@ make
 ### Execução
 Para executar com suas apostas, rode o seguinte comando:
 ```
-./kenobet ../data/bets.txt
+./kenobet bets.txt
 ```
 
 ## Testando erros
 ### Caso 1 - Repetição de números
 ```
-./kenobet ../data/test1.txt
+./kenobet test1.txt
 ```
 ### Caso 2 - Quantidade de números na aposta superior a 15 números;
 ```
-./kenobet ../data/test2.txt
+./kenobet test2.txt
 ```
 ### Caso 3 - Presença de caracteres estranhos (exemplo: strings);
 ```
-./kenobet ../data/test3.txt
+./kenobet test3.txt
+```
+### Caso 4 - Formato diferente;
+```
+./kenobet test4.txt
 ```
