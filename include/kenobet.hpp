@@ -12,6 +12,7 @@ using std::stringstream;
 using number_type = unsigned short int; //<! data type for a keno hit.
 using cash_type = float; //<! Defines the wage type in this application.
 using set_of_numbers_type = std::vector< number_type >;
+using table_type = std::vector<std::vector<float>>;
 
 class KenoBet {
   public:
@@ -65,14 +66,14 @@ class KenoBet {
 
     /*! Returns a std::vector<std::vector<float>> with the payoff table
         @return The std::vector<std::vector<float>> return the payoff table*/
-    std::vector<std::vector<float>> get_table(void);
+    table_type get_table(void);
 
   private:
     set_of_numbers_type m_spots;  //<! The player's bet.
     cash_type m_wage;             //<! The player's wage.
     number_type rounds;           //<! The player's rounds.
 
-    std::vector<std::vector<float>> payoff_table = { //<! Payoff table
+    table_type payoff_table = { //<! Payoff table
     { 0, 3 },
     { 0, 1, 9 },
     { 0, 1, 2, 16 },

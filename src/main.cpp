@@ -55,7 +55,7 @@ int main(int argc, char *argv[]){
     size_t size = bet.size();
     set_of_numbers_type spots = bet.get_spots();
     float creditPerRound = wage/rounds;
-    std::vector<std::vector<float> > table = bet.get_table();
+    table_type table = bet.get_table();
     cash_type total = wage;
 
     if(size == 0){
