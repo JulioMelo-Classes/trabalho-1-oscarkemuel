@@ -59,10 +59,6 @@ class KenoBet {
         @return The number_type with the number of betting rounds. */
     number_type getRounds( void ) const;
 
-    /*! Returns float with the number of credits per round.
-        @return The float with the number of credits per round. */
-    float getCreditPerRound( void ) const;
-
     /*! Scroll through the third line of the file to trigger add_number.
         @return T if the number chosen to bet is a type number; F otherwise.. */
     bool setValues(const std::string& s);

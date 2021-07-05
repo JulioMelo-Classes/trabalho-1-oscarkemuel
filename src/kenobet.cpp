@@ -64,10 +64,6 @@ size_t KenoBet::size( void ) const{
   return m_spots.size();
 }
 
-float KenoBet::getCreditPerRound( void ) const{
-  return m_wage / rounds;
-}
-
 bool KenoBet::setValues(const std::string& s) {
   string text = s;
   cout << "TESTE" << text << endl;
