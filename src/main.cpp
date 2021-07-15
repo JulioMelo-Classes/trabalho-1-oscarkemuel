@@ -14,6 +14,22 @@ void printArray(set_of_numbers_type array) {
   cout << "]";
 }
 
+/*
+Avaliação
+Processamento do Arquivo de Entrada: 1
+Execução correta: 1
+Interfcace Textual: 1
+Documentação: 1
+Compilação automatizada: 1
+Organização em src, include, build, data: 1
+
+Comentários
+- Vi que você não usou algoritmos de ordenação, o que poderia melhorar bastante a complexidade (tempo de execução)
+para encontrar os hits
+- Você poderia dividir mais o programa em termos das checagens do arquivo de entrada e interface textual, o que
+reduziria bastante o main.
+*/
+
 int main(int argc, char *argv[]){
   ifstream file;
   string row;
